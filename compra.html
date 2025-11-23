@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="compra.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <title>Área de Compra</title>
+    
+</head>
+<body>
+    <div class="topo">
+    <img src="img/logo.png" class="logo" alt="Logo" />
+    
+</div>
+
+    <h1><span class="texto-starbuck">Starbucks</span></h1>
+    <h3><span class="texto-star">Área De Pagamento</span></h3>
+    <img src="img/20201209180625-removebg-preview.png" class="imagem-direita" alt="Ícone adicional" />
+
+    <div class="container-compra">
+        <!-- Produto em destaque com círculo atrás -->
+        <section class="produto-destaque">
+            <div class="circulo" id="bgCirculo"></div>
+
+            <!-- Miniaturas / Menu em cima -->
+            <div class="opcoes-produto">
+                <img src="./img/thumb1.png" alt="Café Tradicional" onclick="selecionarProduto('Café Tradicional', './img/img1.png', '#017143')" />
+                <img src="./img/thumb2.png" alt="Café com Leite" onclick="selecionarProduto('Café com Leite', './img/img2.png', '#eb7495')" />
+                <img src="./img/thumb3.png" alt="Capuccino" onclick="selecionarProduto('Capuccino', './img/img3.png', '#d752b1')" />
+            </div>
+
+            <img id="imgProduto" src="./img/img1.png" class="produto" alt="Produto em destaque" />
+
+            <!-- Resumo sem título -->
+            <div class="resumo">
+                <p id="resumoProduto">Café Tradicional</p>
+            </div>
+        </section>
+
+        <!-- Formulário -->
+        <section class="formulario">
+            <h2>Seus Dados</h2>
+            <form id="formCompra" method="POST" action="processa_compra.php">
+                <label>Nome:</label>
+                <input type="text" name="nome" required />
+
+                <label>Telefone:</label>
+                <input type="tel" name="telefone" required />
+
+                <label>Forma de Pagamento:</label>
+                <select name="pagamento" required>
+                    <option value="">Selecione</option>
+                    <option value="Cartão">Cartão</option>
+                    <option value="Pix">Pix</option>
+                    <option value="app">App</option>
+                    <option value="Debito">Debito</option>
+                    <option value="Credito">Credito</option>
+                </select>
+
+                <input type="hidden" name="produto" id="produtoSelecionado" value="Café Tradicional" />
+                <input type="hidden" name="imagem" id="imagemSelecionada" value="./img/img1.png" />
+
+                <button type="submit">Finalizar Compra</button>
+                <!-- QR Code oculto inicialmente -->
+                <div id="qrPix" class="qr-pix mensagem-oculta">
+                    <h3><span class="texto-pix">Ler o QRcode Para Pagar</span></h3>
+                    <img src="img/istockphoto-991221056-612x612-removebg-preview.png" alt="QR Code Pix">
+                </div>
+            </form>
+        </section>
+    </div>
+        <button onclick="window.location.href='index.html'">Pagina SM technology</button>
+
+    <script src="scripts.js">
+    
+    </script>
+</body>
+</html>
